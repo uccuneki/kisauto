@@ -25,10 +25,10 @@ try:
         for event in events:
             if event.code == RT:
                 motors.motor1.setSpeed(event.state//NORM)
-                print(f"Forward: {event.state//NORM}")
+                #print(f"Forward: {event.state//NORM}")
             if event.code == LT:
                 motors.motor1.setSpeed(-event.state//NORM)
-                print(f"Backward: {event.state//NORM}")
+                #print(f"Backward: {event.state//NORM}")
 
 finally:
     motors.forceStop()

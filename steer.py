@@ -13,7 +13,7 @@ def steering():
         events = get_gamepad()
         for event in events:
             if event.code == LJ:
-                print(str(f"Steering: {round(event.state/float(NORM), 2)}"))
+                #print(str(f"Steering: {round(event.state/float(NORM), 2)}"))
                 yield round(event.state/float(NORM), 2)
 
 
