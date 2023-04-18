@@ -18,6 +18,8 @@ class DriverFault(Exception):
 def raiseIfFault():
     if motors.motor1.getFault():
         raise DriverFault(1)
+    if motors.motor2.getFault():
+        raise DriverFault(2)
 
 
 try:
@@ -28,9 +30,11 @@ try:
         for event in events:
             if event.code == RT:
                 motors.motor1.setSpeed(event.state//NORM)
+                motors.motor2.setSpeed(-event.state//NORM)
                 #print(f"Forward: {event.state//NORM}")
             if event.code == LT:
                 motors.motor1.setSpeed(-event.state//NORM)
+                motors.motor2.setSpeed(event.state//NORM)
                 #print(f"Backward: {event.state//NORM}")
 
 finally:
