@@ -1,3 +1,7 @@
+from time import sleep
+print("Waiting for controller")
+sleep(10)
+
 from gpiozero import Servo
 from gpiozero.pins.pigpio import PiGPIOFactory
 from signal import pause

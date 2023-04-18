@@ -1,5 +1,8 @@
-from __future__ import print_function
-import time
+from time import sleep
+print("Waiting for controller")
+sleep(10)
+print("Ready")
+
 from dual_g2_hpmd_rpi import motors, MAX_SPEED
 from inputs import get_gamepad
 
