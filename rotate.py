@@ -12,22 +12,26 @@ servo2 = Servo(19, min_pulse_width=0.0005, max_pulse_width=0.0025, pin_factory=f
 
 BTN_A = "BTN_SOUTH"  # button A
 STATE = -1
+SPEED = 0.02
 
-servo1.mid()
-servo2.mid()
+values = [item/100 for item in range(-100, 100)]
 
 def rotate():
     global STATE
     if STATE == -1:
         print("Rotate: max")
-        servo1.min()
-        servo2.max()
+        for v in values:
+            servo1.value = -1 * v
+            servo2.value = v
+            sleep(SPEED)
         STATE = 1
         sleep(1)
     else:
         print("Rotate: min")
-        servo1.max()
-        servo2.min()
+        for v in values:
+            servo1.value = v
+            servo2.value = -1 * v
+            sleep(SPEED)
         STATE = -1
         sleep(1)
         
