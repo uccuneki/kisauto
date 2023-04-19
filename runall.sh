@@ -1,4 +1,4 @@
 #!bin/bash
 python drive.py &
-python steer.py &
+python rotate.py &
 echo "Done."
